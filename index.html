@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>午夜鱼干局</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <section id="splashScreen" class="splash-screen" aria-label="游戏开场">
+      <img src="./assets/avatars/kaichang.png?v=20260607-1523" alt="午夜鱼干局开场图" />
+      <button id="startGameButton" class="start-game-button" type="button">开始游戏</button>
+    </section>
+    <main class="table-shell">
+      <section class="game" aria-label="午夜鱼干局游戏">
+        <header class="topbar">
+          <div class="title-block">
+            <div class="cat-avatar player-avatar has-image" aria-hidden="true"><img src="./assets/avatars/wanjia.png" alt="玩家白猫小满头像" /></div>
+            <div>
+              <h1>午夜鱼干局</h1>
+              <p>带着鱼干一路打到狸花大 boss。</p>
+            </div>
+          </div>
+          <div class="scoreboard" aria-live="polite">
+            <div class="bank">
+              <span>你的鱼干</span>
+              <strong id="bank">9</strong>
+            </div>
+            <div class="bank dealer-bank">
+              <span>庄家鱼干</span>
+              <strong id="dealerBank">9</strong>
+            </div>
+            <div class="bank">
+              <span>挑战</span>
+              <strong id="progress">1/9</strong>
+            </div>
+            <div class="bank">
+              <span>本局下注</span>
+              <strong id="currentBet">1</strong>
+            </div>
+            <div class="bank">
+              <span>连胜 / 最佳</span>
+              <strong><b id="streak">0</b>/<b id="bestBank">9</b></strong>
+            </div>
+          </div>
+        </header>
+
+        <section class="dealer-track" aria-label="庄家挑战路线">
+          <ol id="dealerTrack"></ol>
+        </section>
+
+        <section class="felt" aria-label="牌桌">
+          <div class="versus-board">
+            <div class="profile">
+              <div class="cat-avatar player-avatar has-image" aria-hidden="true"><img src="./assets/avatars/wanjia.png" alt="玩家白猫小满头像" /></div>
+              <div>
+                <span>玩家</span>
+                <strong>白猫小满</strong>
+              </div>
+            </div>
+            <div class="versus">VS</div>
+            <div class="profile dealer-profile">
+              <div id="dealerAvatar" class="cat-avatar dealer-1" aria-hidden="true"><span></span></div>
+              <div>
+                <span id="dealerBreed">橘猫</span>
+                <strong id="dealerName">胖橘</strong>
+                <em id="dealerTag">第一位庄家</em>
+              </div>
+            </div>
+          </div>
+
+          <div class="hand-zone dealer-zone">
+            <div class="hand-title">
+              <span id="dealerHandTitle">橘猫 胖橘</span>
+              <strong id="dealerScore">?</strong>
+            </div>
+            <div id="dealerHand" class="hand" aria-label="庄家手牌"></div>
+          </div>
+
+          <div class="center-board">
+            <div id="message" class="message" aria-live="polite">选择下注，然后开始一局。</div>
+            <div class="bet-panel">
+              <button class="chip selected" data-bet="1" type="button">1</button>
+              <button class="chip" data-bet="2" type="button">2</button>
+              <button class="chip" data-bet="3" type="button">3</button>
+            </div>
+          </div>
+
+          <div class="hand-zone player-zone">
+            <div class="hand-title">
+              <span>你的小猫</span>
+              <strong id="playerScore">0</strong>
+            </div>
+            <div id="playerHand" class="hand" aria-label="玩家手牌"></div>
+          </div>
+        </section>
+
+        <nav class="controls" aria-label="游戏操作">
+          <button id="dealButton" type="button">发牌</button>
+          <button id="hitButton" type="button" disabled>要牌</button>
+          <button id="standButton" type="button" disabled>停牌</button>
+          <button id="doubleButton" type="button" disabled>双倍</button>
+          <button id="surrenderButton" type="button" disabled>投降</button>
+          <button id="restartButton" type="button">重置</button>
+        </nav>
+      </section>
+    </main>
+    <script src="./game.js"></script>
+  </body>
+</html>
